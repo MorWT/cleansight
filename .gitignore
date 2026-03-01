@@ -28,3 +28,26 @@ dist-ssr
 *.sw?
 
 .env
+
+# MVP
+MVP/cleaner_detector/weights*
+MVP/cls_runs*
+MVP/dataset*
+MVP/models*
+MVP/runs*
+MVP/samples*
+MVP/weights*
+MVP/ipynb_checkpoints/
+__pycache__/ 
+*.pyc
+.venv/
+.venv
+
+# Next.js build output
+.next/
+out/
+
+# Python Virtual Environments (Catch-all)
+venv/
+.venv/
+env/
