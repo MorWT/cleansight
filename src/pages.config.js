@@ -47,22 +47,22 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
-import Dashboard from './pages/Dashboard';
-import Cameras from './pages/Cameras';
-import Missions from './pages/Missions';
-import Team from './pages/Team';
 import Analytics from './pages/Analytics';
+import Cameras from './pages/Cameras';
+import Dashboard from './pages/Dashboard';
+import Missions from './pages/Missions';
 import Settings from './pages/Settings';
+import Team from './pages/Team';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "Dashboard": Dashboard,
-    "Cameras": Cameras,
-    "Missions": Missions,
-    "Team": Team,
     "Analytics": Analytics,
+    "Cameras": Cameras,
+    "Dashboard": Dashboard,
+    "Missions": Missions,
     "Settings": Settings,
+    "Team": Team,
 }
 
 export const pagesConfig = {

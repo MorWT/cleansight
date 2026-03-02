@@ -1,6 +1,6 @@
 import React from "react";
 import { base44 } from "@/api/base44Client";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 import StatsBar from "@/components/dashboard/StatsBar";
 import CameraGrid from "@/components/dashboard/CameraGrid";
@@ -8,6 +8,7 @@ import MissionsList from "@/components/dashboard/MissionsList";
 import TeamStatus from "@/components/dashboard/TeamStatus";
 import AnalyticsCharts from "@/components/dashboard/AnalyticsCharts";
 import ActivityFeed from "@/components/dashboard/ActivityFeed";
+import SimulateDetection from "@/components/dashboard/SimulateDetection";
 
 export default function Dashboard() {
   const { data: cameras = [], isLoading: camerasLoading } = useQuery({
