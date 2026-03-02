@@ -19,6 +19,14 @@ export default function Dashboard() {
     queryClient.invalidateQueries({ queryKey: ["team"] });
   };
 
+  // Real-time subscriptions
+  useEffect(() => {
+    const unsub1 = base44.entities.Mission.subscribe(() => queryClient.invalidateQueries({ queryKey: ["missions"] }));
+    const unsub2 = base44.entities.TeamMember.subscribe(() => queryClient.invalidateQueries({ queryKey: ["team"] }));
+    const unsub3 = base44.entities.Camera.subscribe(() => queryClient.invalidateQueries({ queryKey: ["cameras"] }));
+    return () => { unsub1(); unsub2(); unsub3(); };
+  }, []);
+
   const { data: cameras = [], isLoading: camerasLoading } = useQuery({
     queryKey: ["cameras"],
     queryFn: () => base44.entities.Camera.list("-created_date"),
