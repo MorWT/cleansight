@@ -52,6 +52,9 @@ export default function Dashboard() {
       {/* Stats */}
       <StatsBar data={statsData} />
 
+      {/* Simulate Detection (demo panel) */}
+      <SimulateDetection cameras={cameras} onDetectionCreated={invalidateAll} />
+
       {/* Camera Grid */}
       <CameraGrid cameras={cameras} isLoading={camerasLoading} />
 
