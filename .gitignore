@@ -30,14 +30,14 @@ dist-ssr
 .env
 
 # MVP
-MVP/cleaner_detector/weights*
-MVP/cls_runs*
-MVP/dataset*
-MVP/models*
-MVP/runs*
-MVP/samples*
-MVP/weights*
-MVP/ipynb_checkpoints/
+functions/cleaner_detector/weights*
+functions/cls_runs*
+functions/dataset*
+functions/models*
+functions/runs*
+functions/samples*
+functions/weights*
+functions/ipynb_checkpoints/
 __pycache__/ 
 *.pyc
 .venv/
