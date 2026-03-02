@@ -11,6 +11,14 @@ import ActivityFeed from "@/components/dashboard/ActivityFeed";
 import SimulateDetection from "@/components/dashboard/SimulateDetection";
 
 export default function Dashboard() {
+  const queryClient = useQueryClient();
+
+  const invalidateAll = () => {
+    queryClient.invalidateQueries({ queryKey: ["cameras"] });
+    queryClient.invalidateQueries({ queryKey: ["missions"] });
+    queryClient.invalidateQueries({ queryKey: ["team"] });
+  };
+
   const { data: cameras = [], isLoading: camerasLoading } = useQuery({
     queryKey: ["cameras"],
     queryFn: () => base44.entities.Camera.list("-created_date"),
