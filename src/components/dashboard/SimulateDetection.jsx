@@ -28,7 +28,7 @@ export default function SimulateDetection({ cameras, onDetectionCreated }) {
     setResult(null);
     try {
       const res = await base44.functions.invoke("processDetection", {
-        _path: "/events/simulate",
+        action: "simulate",
         camera_id: selectedCamera,
         detection_type: detectionType,
         confidence: 85,
