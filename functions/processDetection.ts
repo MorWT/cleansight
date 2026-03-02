@@ -55,10 +55,20 @@ function calcCoverage(imgW, imgH, boxes) {
 Deno.serve(async (req) => {
   const base44 = createClientFromRequest(req);
   const url = new URL(req.url);
-  const path = url.pathname.replace(/^\/[^/]+/, ""); // strip function prefix
+  // Support both direct routing and SDK payload routing
+  const path = url.pathname.replace(/^\/[^/]+/, "") || "/";
+  let body = {};
+  if (req.method === "POST") {
+    body = await req.json().catch(() => ({}));
+  }
+  // SDK calls come as POST to "/" with all params in body
+  // Python detectors call with explicit paths like /events/detections
+  const action = path === "/" ? (body._action || "simulate") : path.replace("/events/", "");
 
   // ── POST /events/detections ──────────────────────────────────────────────
-  if (req.method === "POST" && path === "/events/detections") {
+  if (req.method === "POST" && (path === "/events/detections" || action === "detections")) {
+    if (!body || Object.keys(body).length === 0) body = await req.json().catch(() => ({}));
+    // body is already parsed above
     const body = await req.json();
     const { camera_id, ts_utc, img_w = 1920, img_h = 1080, model = "unknown", frame_path, boxes = [] } = body;
 
