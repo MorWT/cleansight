@@ -1,0 +1,69 @@
+{
+  "name": "Mission",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Mission title/description"
+    },
+    "camera_id": {
+      "type": "string",
+      "description": "ID of the camera that detected the mess"
+    },
+    "location": {
+      "type": "string",
+      "description": "Location where mess was detected"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "assigned",
+        "in_progress",
+        "completed"
+      ],
+      "default": "pending",
+      "description": "Current mission status"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium",
+      "description": "Mission priority level"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Name of the assigned team member"
+    },
+    "detection_type": {
+      "type": "string",
+      "description": "Type of mess detected"
+    },
+    "detection_confidence": {
+      "type": "number",
+      "description": "AI confidence score 0-100"
+    },
+    "snapshot_url": {
+      "type": "string",
+      "description": "Snapshot of the detection"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the mission was completed"
+    },
+    "estimated_duration": {
+      "type": "number",
+      "description": "Estimated cleanup duration in minutes"
+    }
+  },
+  "required": [
+    "title",
+    "location"
+  ]
+}

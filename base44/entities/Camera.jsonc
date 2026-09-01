@@ -1,0 +1,41 @@
+{
+  "name": "Camera",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Camera name/label"
+    },
+    "location": {
+      "type": "string",
+      "description": "Physical location of the camera"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "online",
+        "offline",
+        "detecting"
+      ],
+      "default": "online",
+      "description": "Current camera status"
+    },
+    "thumbnail_url": {
+      "type": "string",
+      "description": "Latest frame thumbnail URL"
+    },
+    "detection_count_today": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of mess detections today"
+    },
+    "zone": {
+      "type": "string",
+      "description": "Zone/area the camera covers"
+    }
+  },
+  "required": [
+    "name",
+    "location"
+  ]
+}

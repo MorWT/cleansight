@@ -1,0 +1,45 @@
+{
+  "name": "TeamMember",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Team member name"
+    },
+    "role": {
+      "type": "string",
+      "description": "Team member role"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "available",
+        "busy",
+        "offline",
+        "on_break"
+      ],
+      "default": "available",
+      "description": "Current availability status"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "Profile picture URL"
+    },
+    "current_mission_id": {
+      "type": "string",
+      "description": "ID of current active mission"
+    },
+    "missions_completed_today": {
+      "type": "number",
+      "default": 0,
+      "description": "Missions completed today"
+    },
+    "zone": {
+      "type": "string",
+      "description": "Assigned zone"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
